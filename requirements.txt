@@ -9,4 +9,4 @@ jinja2==2.11.1
 pip==20.0.2
 simplejson==3.17.2
 geopy==2.0.0
-folium=0.11.0
+folium==0.11.0
