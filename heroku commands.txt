@@ -1,0 +1,25 @@
+heroku create
+git add -A
+git commit -m ' '
+git push heroku master
+heroku open
+
+pip install -r requirements.txt
+pip list
+conda list
+
+heroku ps
+heroku ps:scale web=1
+heroku logs --tail
+
+heroku addons:create papertrail
+heroku addons
+heroku addons:open papertrail
+heroku run python manage.py shell
+heroku run bash
+heroku config:set TIMES=2
+heroku config
+heroku pg
+heroku pg:psql
+
+
