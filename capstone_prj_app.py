@@ -111,7 +111,7 @@ def index():
 
 
 
-@app.route('/location', methods = ['POST'])
+@app.route('/location', methods = ['GET'])
 def compare_location():
     original = request.form['original'].capitalize()
     target = request.form['target'].capitalize()
