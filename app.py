@@ -123,11 +123,11 @@ def compare_location():
     target_income = df[df['City']==target]['Personal_income'].values[0]
     target_cost = df[df['City']==target]['Cost of Living Index'].values[0]
     target_bp = int(target_income/target_cost)
-    income_ratio = round((target_income - original_income)/original_income, 3)*100
-    bp_ratio = round((target_bp - original_bp)/original_bp, 3)*100
+    income_ratio = (target_income - original_income)/original_income*100
+    bp_ratio = (target_bp - original_bp)/original_bp*100
 
 
-    return render_template('summary.html', original = original, target = target, original_income = int(round(original_income/100)*100), original_cost = original_cost, target_income = int(round(target_income/100)*100), target_cost = target_cost, income_ratio = (str(income_ratio)+'%'), bp_ratio = (str(bp_ratio)+'%'))
+    return render_template('summary.html', original = original, target = target, original_income = int(round(original_income/100)*100), original_cost = original_cost, target_income = int(round(target_income/100)*100), target_cost = target_cost, income_ratio = (str(round(income_ratio,2))+'%'), bp_ratio = (str(round(bp_ratio, 2))+'%'))
 
 
 
