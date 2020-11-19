@@ -113,11 +113,14 @@ def index():
 
 @app.route('/location', methods = ['POST'])
 def compare_location():
-    original = request.form['original'].capitalize()
-    target = request.form['target'].capitalize()
-
+    original_city = request.form['original']
+    original = ' '.join( x.capitalize() for x in original_city.split())
+    target_city = request.form['target']
+    target = ' '.join( x.capitalize() for x in target_city.split())
+    print(original, target)
     df = dill.load(open('living_cost_income.pkl', 'rb'))
     original_income = df[df['City']==original]['Personal_income'].values[0]
+    print(original_income)
     original_cost = df[df['City']==original]['Cost of Living Index'].values[0]
     original_bp = int(original_income/original_cost)
     target_income = df[df['City']==target]['Personal_income'].values[0]
