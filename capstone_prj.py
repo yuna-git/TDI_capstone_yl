@@ -129,7 +129,7 @@ def compare_location():
     income_ratio = (target_income - original_income)/original_income*100
     bp_ratio = (target_bp - original_bp)/original_bp*100
 
-    orignal_income = '$' + str(int(original_income)//1000) + ',' + str(int(original_income)%1000)
+    original_income = '$' + str(int(original_income)//1000) + ',' + str(int(original_income)%1000)
     target_income = '$' + str(int(target_income)//1000) + ',' + str(int(target_income)%1000)
     if income_ratio > 0:
         income_ratio_change = 'increases ' + str(round(income_ratio, 2))+'%'
