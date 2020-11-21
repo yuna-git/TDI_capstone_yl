@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn capstone_prj:app

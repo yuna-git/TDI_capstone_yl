@@ -29,18 +29,20 @@ def get_job_number(loc, job_title):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('any_job.html')
+        return render_template('introduction.html')
     else:
-        if request.form['title'] =='':
-            category = 'Data Analytics'
-        else:
-            category = request.form['title']
-        app.vars['title'] = category
-        living_cost_income = dill.load(open('living_cost_income.pkl', 'rb'))
-        living_cost_income['job_opening'] = None
+#        if request.form['title'] =='':
+#            category = 'Data Analytics'
+#        else:
+        category = request.form['category']
+        app.vars['category'] = category
+        living_cost_income = dill.load(open('living_cost_income_2019.pkl', 'rb'))
+        job_salary_num = dill.load(open('job_salary_num_1120.pkl', 'rb'))
+        job_df = job_salary_num[job_salary_num['title']==category]
+        merge_df = pd.merge(living_cost_income, job_df, how='left', on='Loc')
 
-# grab the number of opening position for this job category
-        geolocator = Nominatim(user_agent="myapp")
+# grab the number of opening position and salary for this job category
+#        geolocator = Nominatim(user_agent="myapp")
 #        for row in range(living_cost_income.shape[0]):
 #             city = living_cost_income.loc[row,'City']
 #             loc = living_cost_income.loc[row,'Loc']
@@ -51,11 +53,12 @@ def index():
 #                 living_cost_income.loc[row, 'job_opening'] = get_job_number(loc, category)
 #             except AttributeError:
 #                 living_cost_income.loc[row, 'job_opening'] = None
-#        living_cost_income['job_opening'].fillna(0, inplace=True)
+        living_cost_income['job num'].fillna(0, inplace=True)
+        living_cost_income['salary'].fillna(0, inplace=True)
        
-        living_cost_income['buying_power'] = living_cost_income['Personal_income']/living_cost_income['Cost of Living Index']
+        living_cost_income['buying_power'] = living_cost_income['Average Income']/living_cost_income['Cost of Living Index']
         df = living_cost_income
-        df['job_num_sq'] = df['DE_opening'].apply(lambda x: x**0.15)
+        df['job_num_sq'] = df['job num'].apply(lambda x: x**0.15)
 
 
 # plot the map html
@@ -111,7 +114,7 @@ def index():
 
 
 
-@app.route('/location', methods = ['POST'])
+@app.route('/summary', methods = ['POST'])
 def compare_location():
     original_city = request.form['original']
     original = ' '.join( x.capitalize() for x in original_city.split())
