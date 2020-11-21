@@ -40,7 +40,7 @@ def index():
         job_salary_num = dill.load(open('job_salary_num_1120.pkl', 'rb'))
         job_df = job_salary_num[job_salary_num['title']==category]
         merge_df = pd.merge(living_cost_income, job_df, how='left', on='Loc')
-
+#        print(merge_df.loc[2, 'title'])
 # grab the number of opening position and salary for this job category
 #        geolocator = Nominatim(user_agent="myapp")
 #        for row in range(living_cost_income.shape[0]):
