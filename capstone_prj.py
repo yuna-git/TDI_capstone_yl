@@ -67,7 +67,7 @@ def index():
         p.legend.orientation = "horizontal"
 
         hover = HoverTool()
-        hover.tooltips = [('Average salary', '@salary'), ('Job number', '@{job num}')]
+        hover.tooltips = [('Title', '@title'), ('Average salary', '@salary'), ('Job number', '@{job num}')]
         hover.mode = 'vline'
         p.add_tools(hover)
         save(p)
