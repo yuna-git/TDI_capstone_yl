@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Map</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <div class="page" style='position:relative; top: 5px; left: 10px;'>
+	    <br> <h4> Please select a job category you are interested in, will plot a map showing the average income and living cost index in U.S. cities in 2019, together with number of current opening positions:</h4>
+      <body>
+      <div class="row">
+        <div class="col-lg-12 text-left" >
+          <form id='input' method='post' action='/map_all'>	
+	       Job Category: 
+	     <Select name='category' id='subject'>
+	       <option value='' selected='selected'>Select job category</option>
+	       <option value='Data Analyst'>Data Analyst</option/>
+	       <option value='Data Engineer'>Data Engineer</option/>
+	       <option value='Data Scientist'>Data Scientist</option/>
+	       <option value='Machine Learning Engineer'>Machine Learning Engineer</option/>
+	       <option value='Software Engineer'>Software Engineer</option/>
+	       <option value='Full Stack Developer'>Full Stack Developer</option/>
+	     </Select>
+	  <br>
+	  <br>
+          <p><input type="submit" value="Submit"></p>
+          </form>
+        </div>
+      </div>
+      </body>
+    </div>
+
+  
+</html>

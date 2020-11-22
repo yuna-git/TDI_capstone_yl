@@ -11,6 +11,11 @@ import geopy
 from geopy.geocoders import Nominatim
 import branca
 import branca.colormap as cmp
+import bokeh
+from bokeh.models import Range1d, LinearAxis
+from bokeh.plotting import figure, output_file, save, show
+from bokeh.transform import dodge
+from bokeh.models.tools import HoverTool
 
 app = Flask(__name__)
 app.vars={}
@@ -26,10 +31,56 @@ def get_job_number(loc, job_title):
     return int(''.join(jobnum.split(',')))
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
         return render_template('introduction.html')
+    else:
+        category = request.form['category']
+        app.vars['category'] = category
+        job_salary_num = dill.load(open('job_salary_num_1120.pkl', 'rb'))
+        job_df = job_salary_num[job_salary_num['title']==category]
+        df = job_df[job_salary_num['title']==category]
+        df['sal'] = df['salary'].apply(lambda x: int(x.replace('$','').replace(',', '')))
+        df2 = df.sort_values(by='job num', ascending=False)[:10]
+
+        cities = df2.Loc.values
+        output_file('./templates/job_top10.html', title="Top10 cities")
+        ymin = int(df2['sal'].min())//1000*1000
+        ymax = int(df2['sal'].max())//1000*1050
+        p = figure(x_range=cities,y_range=(60000, ymax), plot_width=1200, plot_height=350, 
+           title=('Top 10 cities with most job opportunities for ' + category),
+           toolbar_location=None, tools='')
+        p.vbar(x=dodge('Loc', -0.1, range=p.x_range), top='sal', width=0.2, source=df2, line_color = 'white', 
+                legend_label="Salary", color='green')
+
+
+        y2max = (int(df2['job num'].max())//100)*150
+        p.extra_y_ranges = {'Job Number': Range1d(start=0, end=y2max)}
+        p.add_layout(LinearAxis(y_range_name="Job Number"), 'right')
+        p.vbar(x=dodge('Loc', 0.1, range=p.x_range), top='job num', width=0.2, source=df2, line_color = 'white', 
+                legend_label="Job number", color='orange', y_range_name='Job Number')
+        p.xgrid.grid_line_color = None
+        p.legend.location = "top_right"
+        p.legend.orientation = "horizontal"
+
+        hover = HoverTool()
+        hover.tooltips = [('Average salary', '@salary'), ('Job number', '@{job num}')]
+        hover.mode = 'vline'
+        p.add_tools(hover)
+        save(p)
+        return render_template('job_num_salary_plot.html', title=category)
+
+@app.route('/job_num_salary_plot')
+def plot_num_salary():
+    return render_template('job_top10.html')
+
+
+@app.route('/map_all', methods=['GET', 'POST'])
+def map_all():
+    if request.method == 'GET':
+        return render_template('map_all.html')
     else:
 #        if request.form['title'] =='':
 #            category = 'Data Analytics'
@@ -147,7 +198,7 @@ def compare_location():
     else:
         salary_change = 'decreases ' + str(round(salary_ratio, 2))+'%'
 
-    return render_template('summary.html', original = original, target = target, original_income = original_income, original_cost = original_cost, target_income = target_income, target_cost = target_cost, income_ratio_change = income_ratio_change, bp_ratio_change = bp_ratio_change, title=title, original_salary = original_salary, target_salary=target_salary, salary_change = salary_change)
+    return render_template('ds_job_map.html', original = original, target = target, original_income = original_income, original_cost = original_cost, target_income = target_income, target_cost = target_cost, income_ratio_change = income_ratio_change, bp_ratio_change = bp_ratio_change, title=title, original_salary = original_salary, target_salary=target_salary, salary_change = salary_change, job_category = title)
 
 
 

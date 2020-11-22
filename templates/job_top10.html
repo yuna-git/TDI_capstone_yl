@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Top10 cities</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="b49d7f0e-04c7-4819-a72a-6f8ddafb79c6" data-root-id="1568"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1756">
+          {"0a952d42-4766-448e-82f9-4264702be009":{"roots":{"references":[{"attributes":{"source":{"id":"1590","type":"ColumnDataSource"}},"id":"1595","type":"CDSView"},{"attributes":{},"id":"1620","type":"UnionRenderers"},{"attributes":{"callback":null,"end":99750,"start":60000},"id":"1573","type":"Range1d"},{"attributes":{},"id":"1613","type":"BasicTicker"},{"attributes":{},"id":"1600","type":"BasicTickFormatter"},{"attributes":{},"id":"1575","type":"CategoricalScale"},{"attributes":{"items":[{"id":"1602","type":"LegendItem"},{"id":"1621","type":"LegendItem"}],"orientation":"horizontal"},"id":"1601","type":"Legend"},{"attributes":{"text":"Top 10 cities with most job opportunities for Data Analyst"},"id":"1569","type":"Title"},{"attributes":{"label":{"value":"Job number"},"renderers":[{"id":"1610","type":"GlyphRenderer"}]},"id":"1621","type":"LegendItem"},{"attributes":{"callback":null,"data":{"Loc":["Washington, DC","Jersey City, NJ","New York, NY","Chicago, IL","San Jose, CA","Boston, MA","Dallas, TX","Oakland, CA","Philadelphia, PA","Atlanta, GA"],"index":[160,159,153,161,173,158,287,156,176,192],"job num":[1627,1182,828,522,515,507,476,470,407,406],"sal":[86291,95356,74745,74282,89806,81270,69191,88964,71790,69795],"salary":["$86,291","$95,356","$74,745","$74,282","$89,806","$81,270","$69,191","$88,964","$71,790","$69,795"],"title":["Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst"]},"selected":{"id":"1619","type":"Selection"},"selection_policy":{"id":"1620","type":"UnionRenderers"}},"id":"1590","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1590","type":"ColumnDataSource"},"glyph":{"id":"1592","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1593","type":"VBar"},"selection_glyph":null,"view":{"id":"1595","type":"CDSView"}},"id":"1594","type":"GlyphRenderer"},{"attributes":{"label":{"value":"Salary"},"renderers":[{"id":"1594","type":"GlyphRenderer"}]},"id":"1602","type":"LegendItem"},{"attributes":{"range":{"id":"1571","type":"FactorRange"},"value":-0.1},"id":"1589","type":"Dodge"},{"attributes":{},"id":"1633","type":"Selection"},{"attributes":{"data_source":{"id":"1606","type":"ColumnDataSource"},"glyph":{"id":"1608","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1609","type":"VBar"},"selection_glyph":null,"view":{"id":"1611","type":"CDSView"},"y_range_name":"Job Number"},"id":"1610","type":"GlyphRenderer"},{"attributes":{"formatter":{"id":"1600","type":"BasicTickFormatter"},"ticker":{"id":"1584","type":"BasicTicker"}},"id":"1583","type":"LinearAxis"},{"attributes":{"callback":null,"data":{"Loc":["Washington, DC","Jersey City, NJ","New York, NY","Chicago, IL","San Jose, CA","Boston, MA","Dallas, TX","Oakland, CA","Philadelphia, PA","Atlanta, GA"],"index":[160,159,153,161,173,158,287,156,176,192],"job num":[1627,1182,828,522,515,507,476,470,407,406],"sal":[86291,95356,74745,74282,89806,81270,69191,88964,71790,69795],"salary":["$86,291","$95,356","$74,745","$74,282","$89,806","$81,270","$69,191","$88,964","$71,790","$69,795"],"title":["Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst","Data Analyst"]},"selected":{"id":"1633","type":"Selection"},"selection_policy":{"id":"1634","type":"UnionRenderers"}},"id":"1606","type":"ColumnDataSource"},{"attributes":{"below":[{"id":"1579","type":"CategoricalAxis"}],"center":[{"id":"1582","type":"Grid"},{"id":"1587","type":"Grid"},{"id":"1601","type":"Legend"}],"extra_y_ranges":{"Job Number":{"id":"1603","type":"Range1d"}},"left":[{"id":"1583","type":"LinearAxis"}],"plot_height":350,"plot_width":1200,"renderers":[{"id":"1594","type":"GlyphRenderer"},{"id":"1610","type":"GlyphRenderer"}],"right":[{"id":"1604","type":"LinearAxis"}],"title":{"id":"1569","type":"Title"},"toolbar":{"id":"1588","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1571","type":"FactorRange"},"x_scale":{"id":"1575","type":"CategoricalScale"},"y_range":{"id":"1573","type":"Range1d"},"y_scale":{"id":"1577","type":"LinearScale"}},"id":"1568","subtype":"Figure","type":"Plot"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"job num"},"width":{"value":0.2},"x":{"field":"Loc","transform":{"id":"1605","type":"Dodge"}}},"id":"1609","type":"VBar"},{"attributes":{"fill_color":{"value":"green"},"line_color":{"value":"white"},"top":{"field":"sal"},"width":{"value":0.2},"x":{"field":"Loc","transform":{"id":"1589","type":"Dodge"}}},"id":"1592","type":"VBar"},{"attributes":{"source":{"id":"1606","type":"ColumnDataSource"}},"id":"1611","type":"CDSView"},{"attributes":{},"id":"1577","type":"LinearScale"},{"attributes":{"callback":null,"end":2400},"id":"1603","type":"Range1d"},{"attributes":{"formatter":{"id":"1598","type":"CategoricalTickFormatter"},"ticker":{"id":"1580","type":"CategoricalTicker"}},"id":"1579","type":"CategoricalAxis"},{"attributes":{"dimension":1,"ticker":{"id":"1584","type":"BasicTicker"}},"id":"1587","type":"Grid"},{"attributes":{},"id":"1619","type":"Selection"},{"attributes":{},"id":"1634","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"sal"},"width":{"value":0.2},"x":{"field":"Loc","transform":{"id":"1589","type":"Dodge"}}},"id":"1593","type":"VBar"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1622","type":"HoverTool"}]},"id":"1588","type":"Toolbar"},{"attributes":{"fill_color":{"value":"orange"},"line_color":{"value":"white"},"top":{"field":"job num"},"width":{"value":0.2},"x":{"field":"Loc","transform":{"id":"1605","type":"Dodge"}}},"id":"1608","type":"VBar"},{"attributes":{},"id":"1580","type":"CategoricalTicker"},{"attributes":{},"id":"1598","type":"CategoricalTickFormatter"},{"attributes":{},"id":"1614","type":"BasicTickFormatter"},{"attributes":{"callback":null,"mode":"vline","tooltips":[["Average salary","@salary"],["Job number","@{job num}"]]},"id":"1622","type":"HoverTool"},{"attributes":{"grid_line_color":null,"ticker":{"id":"1580","type":"CategoricalTicker"}},"id":"1582","type":"Grid"},{"attributes":{"range":{"id":"1571","type":"FactorRange"},"value":0.1},"id":"1605","type":"Dodge"},{"attributes":{"formatter":{"id":"1614","type":"BasicTickFormatter"},"ticker":{"id":"1613","type":"BasicTicker"},"y_range_name":"Job Number"},"id":"1604","type":"LinearAxis"},{"attributes":{},"id":"1584","type":"BasicTicker"},{"attributes":{"callback":null,"factors":["Washington, DC","Jersey City, NJ","New York, NY","Chicago, IL","San Jose, CA","Boston, MA","Dallas, TX","Oakland, CA","Philadelphia, PA","Atlanta, GA"]},"id":"1571","type":"FactorRange"}],"root_ids":["1568"]},"title":"Bokeh Application","version":"1.4.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1756').textContent;
+                  var render_items = [{"docid":"0a952d42-4766-448e-82f9-4264702be009","roots":{"1568":"b49d7f0e-04c7-4819-a72a-6f8ddafb79c6"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

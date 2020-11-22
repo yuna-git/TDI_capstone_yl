@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>DS job search</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <div class="page">
+      <h3> Please select a job category you are interested in, will show a map of the opening job numbers in US:</h3>
+      <body>
+      <div class="row" style='position:relative; top: 5px; left: 10px;'>
+        <div class="col-lg-12 text-left">
+          <form id='input' method='post' action='/'>	
+	       Job Category: 
+	     <Select name='category' id='subject'>
+	       <option value='' selected='selected'>Select job category</option>
+	       <option value='Data Analyst'>Data Analyst</option/>
+	       <option value='Data Engineer'>Data Engineer</option/>
+	       <option value='Data Scientist'>Data Scientist</option/>
+	       <option value='Machine Learning Engineer'>Machine Learning Engineer</option/>
+	       <option value='Software Engineer'>Software Engineer</option/>
+	       <option value='Full Stack Developer'>Full Stack Developer</option/>
+	     </Select>
+	  <br>
+	  <br>
+          <p><input type="submit" value="Submit"></p>
+          </form>
+        </div>
+      </div>
+      <div style='position:relative; top: 5px; left: 10px;'>
+	<p>Here is a plot of job numbers and average salary for the top 10 cities with most job opportunities for {{title}}:</p>
+      </div>
+
+      <div id='contentframe' style='position:relative; top: 5px; left: 0px;'>      
+	<p align='center'><iframe src='/job_num_salary_plot' title='jobs number and salary' width='1500' height='400' frameborder = 0> 
+	</iframe></p>
+	</div>
+      <div style='position:relative; top: 5px; left: 10px;'>
+	<form id='input' method='get' action='/map_all'>
+	<p><input type="submit" value="Map for major US cities"></p>
+	</form>
+      </div>
+
+      </body>
+    </div>
+
+  
+</html>
