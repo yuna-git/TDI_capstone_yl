@@ -12,7 +12,7 @@ from geopy.geocoders import Nominatim
 import branca
 import branca.colormap as cmp
 import bokeh
-from bokeh.models import Range1d, LinearAxis
+from bokeh.models import Range1d, LinearAxis, NumeralTickFormatter,FuncTickFormatter
 from bokeh.plotting import figure, output_file, save, show
 from bokeh.transform import dodge
 from bokeh.models.tools import HoverTool
@@ -52,6 +52,7 @@ def index():
         p = figure(x_range=cities,y_range=(60000, ymax), plot_width=1200, plot_height=350, 
            title=('Top 10 cities with most job opportunities for ' + category),
            toolbar_location=None, tools='')
+        p.yaxis[0].formatter = NumeralTickFormatter(format="$0,0")
         p.vbar(x=dodge('Loc', -0.1, range=p.x_range), top='sal', width=0.2, source=df2, line_color = 'white', 
                 legend_label="Salary", color='green')
 
