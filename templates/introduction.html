@@ -1,11 +1,21 @@
 <!DOCTYPE html>
+
 <title>DS job search</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <div class="page">
-      <h3> Please select a job category you are interested in, will show a map of the opening job numbers in US:</h3>
-      <body>
+    <div class="page" align = 'center'>
+       <img  src="https://www.moneycrashers.com/wp-content/uploads/2014/06/find-job-online-craigslist-1068x713.jpg"   width="1350" height="400">
+    </div>
+      <body style="background-color:#ebeffa;"; "background: looking_4job.jpeg">
+	<div>
+	<div class = 'introduction' style='position:relative; top: 10px; left: 5px;' >
+	      <h4> For four years in a row, data scientist has been named the number one job in the U.S. job market. What's more, the U.S. Bureau of Labor Statistics reports that the demand for data science skills will drive a 27.9 percent rise in employment in the field through 2026. Not only is there a huge demand, but there is also a noticeable shortage of qualified data scientists. </h4>
+	      <h4> With this bright future of data science, job hunting in this field can still be very challenging, even with the huge amount of information availabe over internet. </h4>
+	      <h4> The goal of this app is to collect information about the top 6 job categories in related field, also provide estimation of income and living cost in major U.S. cities, as reference for people who are searching for jobs in this field, and may be planning for relocation.  </h4>
+
+	</div>
+	<h4 style='position:relative; top: 30px; left: 5px;' > Please select a job category you are interested in, will show a map of the opening job numbers in US:</h4>
       <div class="row">
-        <div class="col-lg-12 text-left">
+        <div class="col-lg-12 text-left" style='position:relative; top: 25px; left: 5px;' >
           <form id='input' method='post' action='/job_num_salary_plot'>	
 	       Job Category: 
 	     <Select name='category' id='subject'>
