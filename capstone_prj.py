@@ -19,6 +19,7 @@ from bokeh.models.tools import HoverTool
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config["CACHE_TYPE"] = "null"
 app.vars={}
 
 def get_job_number(loc, job_title):
