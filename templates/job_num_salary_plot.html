@@ -6,7 +6,7 @@
       <body>
       <div class="row" style='position:relative; top: 5px; left: 10px;'>
         <div class="col-lg-12 text-left">
-          <form id='input' method='post' action='/'>	
+          <form id='input' method='post' action='/job_num_salary_plot'>	
 	       Job Category: 
 	     <Select name='category' id='subject'>
 	       <option value='' selected='selected'>Select job category</option>
@@ -23,16 +23,16 @@
           </form>
         </div>
       </div>
-      {% if title %}
+    
       <div style='position:relative; top: 5px; left: 10px;'>
 	      <p>Here is a plot of job numbers and average salary for the top 10 cities with most job opportunities for {{title}}:</p>
       </div>
 	
         <div id='contentframe' style='position:relative; top: 5px; left: 0px;'>      
-	<p align='center'><iframe src='/job_num_salary_plot' title='jobs number and salary' width='1500' height='400' frameborder = 0> 
+	<p align='center'><iframe src='/job_top10' title='jobs number and salary' width='1500' height='400' frameborder = 0> 
 	</iframe></p>
 	</div>
-      {% endif %}
+      
       <div style='position:relative; top: 5px; left: 10px;'>
 	<form id='input' method='get' action='/map_all'>
 	<p><input type="submit" value="Map for major US cities"></p>

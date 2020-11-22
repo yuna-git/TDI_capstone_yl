@@ -32,11 +32,13 @@ def get_job_number(loc, job_title):
 
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     if request.method == 'GET':
         return render_template('introduction.html')
-    else:
+
+@app.route('/job_num_salary_plot', methods=['POST'])
+def job_num_salary_plot():
         category = request.form['category']
         app.vars['category'] = category
         job_salary_num = dill.load(open('job_salary_num_1120.pkl', 'rb'))
@@ -73,7 +75,7 @@ def index():
         save(p)
         return render_template('job_num_salary_plot.html', title=category)
 
-@app.route('/job_num_salary_plot')
+@app.route('/job_top10')
 def plot_num_salary():
     return render_template('job_top10.html')
 
